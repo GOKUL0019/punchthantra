@@ -1,13 +1,133 @@
 body {
+  background-color: #111;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.auth-container {
+  background: #1e1e1e;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(16, 209, 22, 0.7); 
+  width: 420px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.auth-container:hover {
+  transform: scale(1.03);
+}
+
+.app-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #10d116; 
+}
+
+
+.toggle-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.toggle-buttons button {
+  background: transparent;
+  border: 2px solid #10d116;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: #10d116;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: 45%;
+}
+
+.toggle-buttons button.active {
+  background: #10d116;
+  color: #111;
+}
+
+.toggle-buttons button:hover {
+  background: rgba(16, 209, 22, 0.1);
+}
+
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: #aaa;
+}
+
+.input-group input {
+  background: #111;
+  border: 1px solid #10d116;
+  padding: 12px;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+}
+
+.input-group input:focus {
+  border-color: #fff;
+}
+
+
+.error-message {
+  background: rgba(255, 0, 0, 0.2);
+  color: #ff4d4d;
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Submit Button */
+.auth-button {
+  width: 100%;
+  background: #10d116;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  color: #111;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.auth-button:hover {
+  background: #fff;
+  color: #10d116;
+}
+
+
+.extra-options {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.extra-options span {
+  color: #10d116;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.extra-options span:hover {
+  text-decoration: underline;
 }
