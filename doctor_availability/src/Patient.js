@@ -10,7 +10,7 @@ const Patient = () => {
         </div>
         <div className="sidebar-links">
           <ul>
-            <li><button className="sidebar-link">Dashboard</button></li>
+            <li><button className="sidebar-link">Home</button></li>
             <li><button className="sidebar-link">Appointments</button></li>
             <li><button className="sidebar-link">Health History</button></li>
             <li><button className="sidebar-link">Prescriptions</button></li>
