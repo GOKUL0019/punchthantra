@@ -8,7 +8,7 @@
   
   .sidebar {
     width: 250px;
-    background-color: #34d510;
+    background-color: #38cc16;
     color: rgb(16, 14, 14);
     padding: 20px;
     display: flex;
@@ -50,7 +50,7 @@
   }
   
   .sidebar-link:hover {
-    background-color: #c4c935;
+    background-color: #bcc21b;
   }
   
  
