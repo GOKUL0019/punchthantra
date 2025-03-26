@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./index.css";
 
 export default function LoginRegister() {
+  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
   const [userType, setUserType] = useState("patient");
   const [email, setEmail] = useState("");
@@ -28,38 +30,31 @@ export default function LoginRegister() {
       return;
     }
     setError("");
-    alert(isLogin ? "Logged in successfully!" : "Registered successfully!");
+
+    if (isLogin && userType === "patient") {
+      navigate("/patient");
+    } else {
+      alert(isLogin ? "Logged in successfully!" : "Registered successfully!");
+    }
   };
 
   return (
     <div className="auth-container">
       <h2 className="app-title">MedConnect</h2>
       <div className="toggle-buttons">
-        <button
-          className={isLogin ? "active" : ""}
-          onClick={() => setIsLogin(true)}
-        >
+        <button className={isLogin ? "active" : ""} onClick={() => setIsLogin(true)}>
           Login
         </button>
-        <button
-          className={!isLogin ? "active" : ""}
-          onClick={() => setIsLogin(false)}
-        >
+        <button className={!isLogin ? "active" : ""} onClick={() => setIsLogin(false)}>
           Register
         </button>
       </div>
 
       <div className="user-type-selector">
-        <button
-          className={userType === "patient" ? "active" : ""}
-          onClick={() => setUserType("patient")}
-        >
+        <button className={userType === "patient" ? "active" : ""} onClick={() => setUserType("patient")}>
           Patient
         </button>
-        <button
-          className={userType === "doctor" ? "active" : ""}
-          onClick={() => setUserType("doctor")}
-        >
+        <button className={userType === "doctor" ? "active" : ""} onClick={() => setUserType("doctor")}>
           Doctor
         </button>
       </div>
@@ -67,34 +62,16 @@ export default function LoginRegister() {
       <form onSubmit={handleSubmit}>
         <div className="input-group">
           <label>Email</label>
-          <input
-            type="email"
-            placeholder="your.email@example.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+          <input type="email" placeholder="your.email@example.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
         </div>
         <div className="input-group">
           <label>Password</label>
-          <input
-            type="password"
-            placeholder="••••••••"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+          <input type="password" placeholder="••••••••" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </div>
         {!isLogin && (
           <div className="input-group">
             <label>Confirm Password</label>
-            <input
-              type="password"
-              placeholder="••••••••"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
+            <input type="password" placeholder="••••••••" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
           </div>
         )}
 
@@ -102,11 +79,7 @@ export default function LoginRegister() {
           <>
             <div className="input-group">
               <label>Specialty</label>
-              <select
-                value={specialty}
-                onChange={(e) => setSpecialty(e.target.value)}
-                required
-              >
+              <select value={specialty} onChange={(e) => setSpecialty(e.target.value)} required>
                 <option value="">Select Specialty</option>
                 <option value="Cardiology">Cardiology</option>
                 <option value="Dermatology">Dermatology</option>
@@ -121,11 +94,7 @@ export default function LoginRegister() {
             </div>
             <div className="input-group">
               <label>Hospital</label>
-              <select
-                value={hospital}
-                onChange={(e) => setHospital(e.target.value)}
-                required
-              >
+              <select value={hospital} onChange={(e) => setHospital(e.target.value)} required>
                 <option value="">Select hospital</option>
                 <option value="hospital1">Hospital 1</option>
                 <option value="hospital2">Hospital 2</option>

@@ -1,0 +1,149 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  h1, h2, p {
+    margin: 10px 0;
+  }
+  
+  
+  .patient-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .sidebar {
+    background-color: #0a0a0a;
+    width: 250px;
+    padding: 20px;
+    height: 100%;
+    color: #9aff99;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar-header {
+    text-align: center;
+  }
+  
+  .sidebar-title {
+    font-size: 1.8rem;
+    color: #34d399;
+  }
+  
+  .sidebar-links ul {
+    list-style: none;
+    margin-top: 30px;
+  }
+  
+  .sidebar-links li {
+    margin: 20px 0;
+  }
+  
+  .sidebar-link {
+    background: none;
+    border: none;
+    color: #9aff99;
+    font-size: 1.1rem;
+    text-align: left;
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    transition: 0.3s;
+  }
+  
+  .sidebar-link:hover {
+    background-color: #34d399;
+    color: #000;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+  }
+  
+  .patient-header {
+    text-align: center;
+  }
+  
+  .welcome-heading {
+    font-size: 2.5rem;
+    color: #34d399;
+  }
+  
+  .patient-description {
+    font-size: 1.2rem;
+    color: #ddd;
+  }
+  
+  .patient-dashboard {
+    margin-top: 40px;
+  }
+  
+  .patient-profile, .patient-appointments, .health-tips {
+    margin-bottom: 40px;
+  }
+  
+  .profile-heading, .appointments-heading, .health-tips-heading {
+    font-size: 1.8rem;
+    color: #34d399;
+  }
+  
+  .profile-info p {
+    font-size: 1.2rem;
+    color: #ddd;
+  }
+  
+  .appointments-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .appointments-table th, .appointments-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #34d399;
+  }
+  
+  .appointments-table th {
+    background-color: #0a0a0a;
+  }
+  
+  .health-tips-list {
+    list-style: none;
+    margin-top: 10px;
+  }
+  
+  .health-tips-list li {
+    font-size: 1.1rem;
+    margin: 10px 0;
+  }
+  
+  .patient-actions .btn-action {
+    padding: 15px 30px;
+    background-color: #34d399;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .patient-actions .btn-action:hover {
+    background-color: #2a9d8f;  
+  }
+  
