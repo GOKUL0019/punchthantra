@@ -3,9 +3,12 @@ import "./index.css";
 
 export default function LoginRegister() {
   const [isLogin, setIsLogin] = useState(true);
+  const [userType, setUserType] = useState("patient");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [specialty, setSpecialty] = useState("");
+  const [hospital, setHospital] = useState("");
   const [error, setError] = useState("");
 
   const handleToggle = () => {
@@ -14,6 +17,8 @@ export default function LoginRegister() {
     setEmail("");
     setPassword("");
     setConfirmPassword("");
+    setSpecialty("");
+    setHospital("");
   };
 
   const handleSubmit = (e) => {
@@ -43,6 +48,22 @@ export default function LoginRegister() {
           Register
         </button>
       </div>
+
+      <div className="user-type-selector">
+        <button
+          className={userType === "patient" ? "active" : ""}
+          onClick={() => setUserType("patient")}
+        >
+          Patient
+        </button>
+        <button
+          className={userType === "doctor" ? "active" : ""}
+          onClick={() => setUserType("doctor")}
+        >
+          Doctor
+        </button>
+      </div>
+
       <form onSubmit={handleSubmit}>
         <div className="input-group">
           <label>Email</label>
@@ -76,11 +97,50 @@ export default function LoginRegister() {
             />
           </div>
         )}
+
+        {userType === "doctor" && !isLogin && (
+          <>
+            <div className="input-group">
+              <label>Specialty</label>
+              <select
+                value={specialty}
+                onChange={(e) => setSpecialty(e.target.value)}
+                required
+              >
+                <option value="">Select Specialty</option>
+                <option value="Cardiology">Cardiology</option>
+                <option value="Dermatology">Dermatology</option>
+                <option value="Neurology">Neurology</option>
+                <option value="Orthopedics">Orthopedics</option>
+                <option value="Pediatrics">Pediatrics</option>
+                <option value="Radiology">Radiology</option>
+                <option value="Psychiatry">Psychiatry</option>
+                <option value="Surgery">Surgery</option>
+                <option value="Gastroenterology">Gastroenterology</option>
+              </select>
+            </div>
+            <div className="input-group">
+              <label>Hospital</label>
+              <select
+                value={hospital}
+                onChange={(e) => setHospital(e.target.value)}
+                required
+              >
+                <option value="">Select hospital</option>
+                <option value="hospital1">Hospital 1</option>
+                <option value="hospital2">Hospital 2</option>
+                <option value="hospital3">Hospital 3</option>
+              </select>
+            </div>
+          </>
+        )}
+
         {error && <p className="error-message">{error}</p>}
         <button type="submit" className="auth-button">
           {isLogin ? "Login" : "Register"}
         </button>
       </form>
+
       <p className="extra-options">
         {isLogin ? "New here?" : "Already have an account?"}{" "}
         <span onClick={handleToggle}>{isLogin ? "Sign up" : "Login"}</span>
