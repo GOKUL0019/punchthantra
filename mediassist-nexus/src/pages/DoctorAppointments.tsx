@@ -126,12 +126,12 @@ const DoctorAppointments = () => {
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [loading, setLoading] = useState(true);
-  const [currentToken, setCurrentToken] = useState(11); // Token currently being served
+  const [currentToken, setCurrentToken] = useState(11); 
   
   const { toast } = useToast();
 
   useEffect(() => {
-    // In a real app, this would be an API call
+    
     setTimeout(() => {
       setAppointments(SAMPLE_APPOINTMENTS);
       setFilteredAppointments(SAMPLE_APPOINTMENTS);

@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-
 export interface AppointmentData {
   id: string;
   doctorName: string;

@@ -14,7 +14,7 @@ import TokenDisplay from '@/components/TokenDisplay';
 import { useToast } from '@/hooks/use-toast';
 import { Hospital, Calendar, UserRound, Clock } from 'lucide-react';
 
-// Sample data for hospitals
+
 const HOSPITALS = [
   { id: '1', name: 'City General Hospital', waitTime: 45, currentToken: 12, queueLength: 8 },
   { id: '2', name: 'Memorial Medical Center', waitTime: 30, currentToken: 25, queueLength: 5 },
@@ -23,7 +23,7 @@ const HOSPITALS = [
   { id: '5', name: 'Riverside Medical', waitTime: 20, currentToken: 42, queueLength: 4 },
 ];
 
-// Define the form schema for booking an appointment
+
 const appointmentFormSchema = z.object({
   hospital: z.string({ required_error: "Please select a hospital" }),
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
@@ -39,7 +39,7 @@ const Appointments = () => {
   const [checkDialogOpen, setCheckDialogOpen] = useState(false);
   const [bookedAppointment, setBookedAppointment] = useState<any>(null);
 
-  // Initialize the form
+  
   const form = useForm<z.infer<typeof appointmentFormSchema>>({
     resolver: zodResolver(appointmentFormSchema),
     defaultValues: {
@@ -49,16 +49,16 @@ const Appointments = () => {
     },
   });
 
-  // Handle form submission
+  
   const onSubmit = (values: z.infer<typeof appointmentFormSchema>) => {
-    // Generate a random token number
+    
     const tokenNumber = Math.floor(Math.random() * 40) + 10;
     const currentToken = Math.floor(Math.random() * (tokenNumber - 1)) + 1;
     
-    // Find the selected hospital
+    
     const selectedHospital = HOSPITALS.find(h => h.id === values.hospital);
     
-    // Create appointment details
+    
     const appointment = {
       id: Date.now().toString(),
       hospitalName: selectedHospital?.name || 'Unknown Hospital',
@@ -71,20 +71,20 @@ const Appointments = () => {
       time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     };
     
-    // Store the appointment in local storage
+    
     const existingAppointments = JSON.parse(localStorage.getItem('appointments') || '[]');
     localStorage.setItem('appointments', JSON.stringify([...existingAppointments, appointment]));
     
-    // Set the booked appointment for display
+    
     setBookedAppointment(appointment);
     
-    // Show success toast
+   
     toast({
       title: "Appointment booked successfully!",
       description: `Your token number is ${tokenNumber}`,
     });
     
-    // Reset the form
+   
     form.reset();
   };
 
@@ -100,7 +100,7 @@ const Appointments = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Book Appointment Card */}
+            
             <Card className="animated-card">
               <CardHeader className="pb-2">
                 <CardTitle className="flex items-center">
@@ -119,7 +119,7 @@ const Appointments = () => {
               </CardContent>
             </Card>
             
-            {/* Check Availability Card */}
+            
             <Card className="animated-card">
               <CardHeader className="pb-2">
                 <CardTitle className="flex items-center">
@@ -139,7 +139,7 @@ const Appointments = () => {
             </Card>
           </div>
           
-          {/* Recent Appointments Section - Would be populated with real data */}
+          
           <div className="mt-10">
             <h2 className="text-xl font-semibold mb-4">Recent Appointments</h2>
             {bookedAppointment && (
@@ -172,7 +172,7 @@ const Appointments = () => {
         </main>
       </div>
       
-      {/* Book Appointment Dialog */}
+      
       <Dialog open={bookDialogOpen} onOpenChange={setBookDialogOpen}>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
@@ -279,7 +279,7 @@ const Appointments = () => {
         </DialogContent>
       </Dialog>
       
-      {/* Check Availability Dialog */}
+      
       <Dialog open={checkDialogOpen} onOpenChange={setCheckDialogOpen}>
         <DialogContent className="sm:max-w-[600px]">
           <DialogHeader>
