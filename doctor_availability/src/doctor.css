@@ -1,0 +1,64 @@
+.doctor-dashboard {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #63cf24;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    color: #ece2e2;
+  }
+  
+  h2 {
+    border-bottom: 2px solid #06e806;
+    padding-bottom: 5px;
+    color: #071209;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  li span {
+    font-weight: bold;
+  }
+  
+  p {
+    color: #0f0202;
+  }
+  
+  .appointments,
+  .messages,
+  .patient-records,
+  .settings {
+    margin-top: 20px;
+    padding: 10px;
+  }
+  
+  button {
+    background: #67e10a;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  button:hover {
+    background: #08e41e;
+  }
+  

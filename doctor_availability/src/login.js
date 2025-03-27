@@ -61,7 +61,10 @@ export default function LoginRegister() {
 
     if (isLogin && userType === "patient") {
       navigate("/patient");
-    } else {
+    }else if (isLogin && userType === "doctor"){
+      navigate("/doctor");
+    } 
+    else {
       alert(isLogin ? "Logged in successfully!" : "Registered successfully!");
     }
   };
