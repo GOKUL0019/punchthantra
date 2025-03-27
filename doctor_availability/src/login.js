@@ -162,5 +162,6 @@ export default function LoginRegister() {
         {isLogin ? "New here?" : "Already have an account?"} <span onClick={handleToggle}>{isLogin ? "Sign up" : "Login"}</span>
       </p>
     </div>
+
   );
 }
