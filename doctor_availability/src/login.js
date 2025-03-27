@@ -120,5 +120,6 @@ export default function LoginRegister() {
         <span onClick={handleToggle}>{isLogin ? "Sign up" : "Login"}</span>
       </p>
     </div>
+
   );
 }
