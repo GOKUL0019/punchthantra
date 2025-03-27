@@ -1,37 +1,51 @@
 import React, { useEffect, useState } from "react";
-import { FaTachometerAlt, FaCalendarAlt, FaNotesMedical, FaPills, FaEnvelope, FaHeadset } from "react-icons/fa";
+import { FaTachometerAlt, FaCalendarAlt, FaNotesMedical, FaPills, FaEnvelope, FaHeadset, FaUserCircle, FaSignOutAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import "./Patient.css";
 
 const Patient = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("Guest");
-  const [email, setEmail] = useState("N/A");
-  const [age, setAge] = useState("N/A");
-  const [gender, setGender] = useState("N/A");
+  const [user, setUser] = useState({
+    name: "Guest",
+    email: "N/A",
+    age: "N/A",
+    gender: "N/A",
+  });
   const [activePage, setActivePage] = useState("dashboard");
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
-    const storedName = localStorage.getItem("name");
-    const storedEmail = localStorage.getItem("email");
-    const storedAge = localStorage.getItem("age");
-    const storedGender = localStorage.getItem("gender");
-
-    if (storedName) setUsername(storedName);
-    if (storedEmail) setEmail(storedEmail);
-    if (storedAge) setAge(storedAge);
-    if (storedGender) setGender(storedGender);
+    const updateUserDetails = () => {
+      setUser({
+        name: localStorage.getItem("name") || "Guest",
+        email: localStorage.getItem("email") || "N/A",
+        age: localStorage.getItem("age") || "N/A",
+        gender: localStorage.getItem("gender") || "N/A",
+      });
+    };
+  
+    updateUserDetails();
+  
+    window.addEventListener("storage", updateUserDetails);
+  
+    return () => {
+      window.removeEventListener("storage", updateUserDetails);
+    };
   }, []);
-
+  
   useEffect(() => {
     if (activePage === "dashboard") {
       setAppointments([
         { id: 1, doctor: "Dr. Smith", date: "2025-04-10", time: "10:00 AM" },
-        { id: 2, doctor: "Dr. Johnson", date: "2025-04-12", time: "02:00 PM" }
+        { id: 2, doctor: "Dr. Johnson", date: "2025-04-12", time: "02:00 PM" },
       ]);
     }
   }, [activePage]);
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/");
+  };
 
   const renderContent = () => {
     switch (activePage) {
@@ -49,7 +63,12 @@ const Patient = () => {
           </div>
         );
       case "appointments":
-        return <h2>Appointments Content</h2>;
+        return (
+          <div>
+            <h2>Apply for an Appointment</h2>
+            <p>Here you can schedule new appointments with doctors.</p>
+          </div>
+        );
       case "health-history":
         return <h2>Health History Content</h2>;
       case "prescriptions":
@@ -80,18 +99,28 @@ const Patient = () => {
           </ul>
         </div>
       </div>
+      
       <div className="main-content">
         <header className="patient-header">
-          <h1 className="welcome-heading">Welcome, {username}!</h1>
+          <h1 className="welcome-heading">Welcome, {user.name}!</h1>
           <p className="patient-description">You have successfully logged in as a patient.</p>
+    
+          <div className="profile-section">
+            <FaUserCircle className="profile-icon" />
+            <span className="profile-name">{user.name}</span>
+            <button className="logout-button" onClick={handleLogout}>
+              <FaSignOutAlt /> Logout
+            </button>
+          </div>
         </header>
+
         <div className="patient-dashboard">
           <section className="patient-profile">
             <h2 className="profile-heading">Your Profile</h2>
             <div className="profile-info">
-              <p><strong>Email:</strong> {email}</p>
-              <p><strong>Age:</strong> {age}</p>
-              <p><strong>Gender:</strong> {gender}</p>
+              <p><strong>Email:</strong> {user.email}</p>
+              <p><strong>Age:</strong> {user.age}</p>
+              <p><strong>Gender:</strong> {user.gender}</p>
               <p><strong>Medical ID:</strong> 123456789</p>
             </div>
           </section>
