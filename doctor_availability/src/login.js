@@ -12,7 +12,12 @@ export default function LoginRegister() {
   const [gender, setGender] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [specialty, setSpecialty] = useState([]);
+  const [hospital, setHospital] = useState([]);
   const [error, setError] = useState("");
+
+  const specialties = ["Cardiology", "Dermatology", "Neurology", "Pediatrics", "Radiology"];
+  const hospitals = ["City Hospital", "Green Valley Hospital", "Sunrise Medical Center", "Metro Healthcare"];
 
   const handleToggle = () => {
     setIsLogin(!isLogin);
@@ -23,6 +28,20 @@ export default function LoginRegister() {
     setGender("");
     setPassword("");
     setConfirmPassword("");
+    setSpecialty([]);
+    setHospital([]);
+  };
+
+  const handleSpecialtyChange = (selected) => {
+    setSpecialty((prev) => 
+      prev.includes(selected) ? prev.filter((s) => s !== selected) : [...prev, selected]
+    );
+  };
+
+  const handleHospitalChange = (selected) => {
+    setHospital((prev) => 
+      prev.includes(selected) ? prev.filter((h) => h !== selected) : [...prev, selected]
+    );
   };
 
   const handleSubmit = (e) => {
@@ -98,6 +117,30 @@ export default function LoginRegister() {
           </>
         )}
 
+{userType === "doctor" && !isLogin && (
+          <>
+            <div className="input-group">
+              <label>Specialty</label>
+              <select value={specialty} onChange={(e) => setSpecialty(e.target.value)} style={{ color: 'grey' }}>
+                <option value="">Select Specialty</option>
+                {specialties.map((spec) => (
+                  <option key={spec} value={spec}>{spec}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="input-group">
+              <label>Hospital</label>
+              <select value={hospital} onChange={(e) => setHospital(e.target.value)} style={{ color: 'grey' }}>
+                <option value="">Select Hospital</option>
+                {hospitals.map((hosp) => (
+                  <option key={hosp} value={hosp}>{hosp}</option>
+                ))}
+              </select>
+            </div>
+          </>
+        )}
+
         <div className="input-group">
           <label>Password</label>
           <input type="password" placeholder="••••••••" value={password} onChange={(e) => setPassword(e.target.value)} required />
@@ -116,8 +159,7 @@ export default function LoginRegister() {
       </form>
 
       <p className="extra-options">
-        {isLogin ? "New here?" : "Already have an account?"}{" "}
-        <span onClick={handleToggle}>{isLogin ? "Sign up" : "Login"}</span>
+        {isLogin ? "New here?" : "Already have an account?"} <span onClick={handleToggle}>{isLogin ? "Sign up" : "Login"}</span>
       </p>
     </div>
   );

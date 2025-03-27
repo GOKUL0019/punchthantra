@@ -4,7 +4,9 @@
     height: 100vh;
     width: 100vw;
   }
-  
+  .h1{
+    color: #38cc16;
+  }
   
   .sidebar {
     width: 250px;
@@ -39,7 +41,7 @@
     font-size: 16px;
     background: none;
     border: none;
-    color: rgb(24, 10, 10);
+    color: rgb(10, 19, 5);
     text-align: left;
     cursor: pointer;
     transition: 0.3s;
@@ -67,6 +69,7 @@
   .patient-header {
     text-align: center;
     margin-bottom: 20px;
+    color: #38cc16;
   }
   
   .welcome-heading {
@@ -76,13 +79,13 @@
   
   .patient-description {
     font-size: 18px;
-    color: #0c6606;
+    color: #1ee210;
   }
   
   
   .patient-dashboard {
     width: 50%;
-    background: rgb(29, 130, 4);
+    background: rgb(46, 210, 5);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(43, 164, 9, 0.1);
