@@ -29,13 +29,12 @@ const DoctorSignup: React.FC<DoctorSignupProps> = ({ onToggleLogin }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Simple validation
+    
     if (!formData.name || !formData.speciality || !formData.hospital || !formData.email || !formData.password) {
       return;
     }
     
-    // In a real app, this would handle user creation
-    // For now, just store in localStorage and navigate
+    
     localStorage.setItem('userType', 'doctor');
     localStorage.setItem('doctorData', JSON.stringify(formData));
     navigate('/doctor-dashboard');

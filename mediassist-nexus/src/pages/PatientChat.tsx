@@ -87,7 +87,7 @@ const PatientChat = () => {
   const { toast } = useToast();
   
   useEffect(() => {
-    // In a real app, fetch this data from an API
+    
     setTimeout(() => {
       setPatients(SAMPLE_PATIENTS);
       setLoading(false);
@@ -101,7 +101,7 @@ const PatientChat = () => {
   }, [activePatient]);
   
   useEffect(() => {
-    // Scroll to bottom of messages
+    
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
   
@@ -119,7 +119,7 @@ const PatientChat = () => {
     setMessages([...messages, message]);
     setNewMessage('');
     
-    // In a real app, you would send this to an API
+    
   };
   
   const startVideoCall = () => {
@@ -230,7 +230,7 @@ const PatientChat = () => {
             </ScrollArea>
           </div>
           
-          {/* Chat Area */}
+          
           <div className="flex-1 flex flex-col">
             <TabsContent value="chat" className="flex-1 flex flex-col data-[state=active]:flex data-[state=inactive]:hidden overflow-hidden">
               {activePatient ? (

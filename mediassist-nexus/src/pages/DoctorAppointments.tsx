@@ -43,7 +43,7 @@ interface Appointment {
 const SAMPLE_APPOINTMENTS: Appointment[] = [
   {
     id: '1',
-    patientName: 'John Smith',
+    patientName: 'Akash',
     patientAge: 45,
     patientGender: 'male',
     date: '2023-06-15',
@@ -54,7 +54,7 @@ const SAMPLE_APPOINTMENTS: Appointment[] = [
   },
   {
     id: '2',
-    patientName: 'Emma Johnson',
+    patientName: 'Aravind',
     patientAge: 32,
     patientGender: 'female',
     date: '2023-06-15',
@@ -65,7 +65,7 @@ const SAMPLE_APPOINTMENTS: Appointment[] = [
   },
   {
     id: '3',
-    patientName: 'Michael Brown',
+    patientName: 'Ajay',
     patientAge: 58,
     patientGender: 'male',
     date: '2023-06-15',
@@ -76,7 +76,7 @@ const SAMPLE_APPOINTMENTS: Appointment[] = [
   },
   {
     id: '4',
-    patientName: 'Sophia Martinez',
+    patientName: 'Avinash',
     patientAge: 28,
     patientGender: 'female',
     date: '2023-06-15',
@@ -87,7 +87,7 @@ const SAMPLE_APPOINTMENTS: Appointment[] = [
   },
   {
     id: '5',
-    patientName: 'William Taylor',
+    patientName: 'Hari Haran',
     patientAge: 64,
     patientGender: 'male',
     date: '2023-06-16',
@@ -98,7 +98,7 @@ const SAMPLE_APPOINTMENTS: Appointment[] = [
   },
   {
     id: '6',
-    patientName: 'Olivia Wilson',
+    patientName: 'Hari Mahith',
     patientAge: 37,
     patientGender: 'female',
     date: '2023-06-16',
@@ -109,7 +109,7 @@ const SAMPLE_APPOINTMENTS: Appointment[] = [
   },
   {
     id: '7',
-    patientName: 'James Anderson',
+    patientName: 'Arjun',
     patientAge: 52,
     patientGender: 'male',
     date: '2023-06-17',
