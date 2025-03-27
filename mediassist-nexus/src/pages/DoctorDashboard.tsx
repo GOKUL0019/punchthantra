@@ -22,7 +22,7 @@ interface Patient {
 const SAMPLE_PATIENTS: Patient[] = [
   {
     id: '1',
-    name: 'John Smith',
+    name: 'Arun',
     age: 45,
     gender: 'male',
     tokenNumber: 10,
@@ -31,7 +31,7 @@ const SAMPLE_PATIENTS: Patient[] = [
   },
   {
     id: '2',
-    name: 'Emma Johnson',
+    name: 'Aravind',
     age: 32,
     gender: 'female',
     tokenNumber: 11,
@@ -40,7 +40,7 @@ const SAMPLE_PATIENTS: Patient[] = [
   },
   {
     id: '3',
-    name: 'Michael Brown',
+    name: 'Gowtham',
     age: 58,
     gender: 'male',
     tokenNumber: 12,
@@ -49,7 +49,7 @@ const SAMPLE_PATIENTS: Patient[] = [
   },
   {
     id: '4',
-    name: 'Sophia Martinez',
+    name: 'Shiva',
     age: 28,
     gender: 'female',
     tokenNumber: 13,
@@ -58,7 +58,7 @@ const SAMPLE_PATIENTS: Patient[] = [
   },
   {
     id: '5',
-    name: 'William Taylor',
+    name: 'Williamson',
     age: 64,
     gender: 'male',
     tokenNumber: 14,
@@ -82,17 +82,17 @@ const DoctorDashboard = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    // In a real app, you would fetch this data from an API
+    
     const storedDoctorData = localStorage.getItem('doctorData');
     if (storedDoctorData) {
       setDoctorData(JSON.parse(storedDoctorData));
     }
     
-    // Simulate loading patients
+    
     setTimeout(() => {
       setPatients(SAMPLE_PATIENTS);
       
-      // Calculate stats
+      
       const total = SAMPLE_PATIENTS.length;
       const completed = SAMPLE_PATIENTS.filter(p => p.status === 'completed').length;
       

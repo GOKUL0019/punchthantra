@@ -142,12 +142,12 @@ const DoctorAppointments = () => {
   useEffect(() => {
     let filtered = appointments;
     
-    // Apply status filter
+    
     if (statusFilter !== 'all') {
       filtered = filtered.filter(appointment => appointment.status === statusFilter);
     }
     
-    // Apply search filter
+    
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
       filtered = filtered.filter(appointment => 
@@ -165,7 +165,7 @@ const DoctorAppointments = () => {
         if (appointment.id === id) {
           return { ...appointment, status: newStatus };
         }
-        // If new status is in-progress, mark any other in-progress as completed
+        
         if (newStatus === 'in-progress' && appointment.status === 'in-progress') {
           return { ...appointment, status: 'completed' };
         }
@@ -180,10 +180,10 @@ const DoctorAppointments = () => {
   };
 
   const callPatient = (appointment: Appointment) => {
-    // First, check if there's currently someone in progress
+    
     const currentInProgress = appointments.find(app => app.status === 'in-progress');
     
-    // If there's someone in progress and it's not this patient, ask for confirmation
+   
     if (currentInProgress && currentInProgress.id !== appointment.id) {
       const confirmCall = window.confirm(
         `Currently seeing ${currentInProgress.patientName} (Token #${currentInProgress.tokenNumber}). Call ${appointment.patientName} (Token #${appointment.tokenNumber}) out of order?`
@@ -191,14 +191,14 @@ const DoctorAppointments = () => {
       
       if (!confirmCall) return;
       
-      // Mark current as completed
+      
       updateAppointmentStatus(currentInProgress.id, 'completed');
     }
     
-    // Update the current token
+    
     setCurrentToken(appointment.tokenNumber);
     
-    // Set the selected appointment to in-progress
+    
     updateAppointmentStatus(appointment.id, 'in-progress');
     
     toast({
