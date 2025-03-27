@@ -1,0 +1,124 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 142 89% 48%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 142 89% 48%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html, body {
+    @apply antialiased scroll-smooth h-full;
+  }
+  
+  body {
+    @apply bg-medical-light text-medical-dark;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-lg border border-white/20 shadow-sm rounded-2xl transition-all;
+  }
+  
+  .animated-card {
+    @apply transform transition-all duration-300 hover:scale-[1.02] hover:shadow-md;
+  }
+  
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
+  }
+  
+  .page-transition {
+    @apply animate-fade-in;
+  }
+  
+  .primary-button {
+    @apply bg-medical-primary text-medical-dark font-medium px-6 py-3 rounded-full 
+           shadow-sm hover:shadow-md transition-all duration-300 hover:bg-opacity-90
+           focus:outline-none focus:ring-2 focus:ring-medical-primary focus:ring-opacity-50;
+  }
+  
+  .secondary-button {
+    @apply bg-medical-dark text-medical-light font-medium px-6 py-3 rounded-full 
+           shadow-sm hover:shadow-md transition-all duration-300 hover:bg-opacity-90
+           focus:outline-none focus:ring-2 focus:ring-medical-dark focus:ring-opacity-50;
+  }
+  
+  .auth-card {
+    @apply glass-card p-8 max-w-md w-full mx-auto;
+  }
+  
+  .blink-dot {
+    @apply h-3 w-3 rounded-full bg-medical-primary animate-blink inline-block mr-2;
+  }
+  
+  .form-input {
+    @apply w-full rounded-lg border border-gray-300 px-4 py-3 transition-all
+           focus:border-medical-primary focus:ring focus:ring-medical-primary focus:ring-opacity-20
+           focus:outline-none;
+  }
+  
+  .nav-link {
+    @apply text-medical-dark hover:text-medical-primary transition-colors duration-200;
+  }
+  
+  .active-nav-link {
+    @apply text-medical-primary font-medium;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
